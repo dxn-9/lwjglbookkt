@@ -29,12 +29,20 @@ class Main : IAppLogic {
 
     override fun init(window: Window, scene: Scene, render: Render) {
         val positions = arrayOf(
-            0.0f, 0.5f, 0.0f,
+            -0.5f, 0.5f, 0.0f,
             -0.5f, -0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f
+            0.5f, -0.5f, 0.0f,
+            0.5f, 0.5f, 0.0f,
         ).toFloatArray()
+        val colors = arrayOf(
+            0.5f, 0.0f, 0.0f,
+            0.0f, 0.5f, 0.0f,
+            0.0f, 0.0f, 0.5f,
+            0.0f, 0.5f, 0.5f
+        ).toFloatArray()
+        val indices = arrayOf(0, 1, 3, 3, 1, 2).toIntArray()
 
-        val mesh = Mesh(positions, 3)
+        val mesh = Mesh(positions, colors, indices)
         scene.addMesh("triangle", mesh)
     }
 

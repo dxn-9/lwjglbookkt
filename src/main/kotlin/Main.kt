@@ -1,5 +1,6 @@
 package org.lwjglbookkt
 
+import org.lwjglbookkt.engine.graph.Mesh
 import org.lwjgl.glfw.*
 import org.lwjgl.glfw.GLFW.*
 import org.lwjgl.opengl.GL11.*
@@ -27,7 +28,14 @@ class Main : IAppLogic {
     }
 
     override fun init(window: Window, scene: Scene, render: Render) {
-//        TODO("Not yet implemented")
+        val positions = arrayOf(
+            0.0f, 0.5f, 0.0f,
+            -0.5f, -0.5f, 0.0f,
+            0.5f, -0.5f, 0.0f
+        ).toFloatArray()
+
+        val mesh = Mesh(positions, 3)
+        scene.addMesh("triangle", mesh)
     }
 
     override fun input(window: Window, scene: Scene, diffTimeMillis: Long) {

@@ -1,22 +1,30 @@
 package org.lwjglbookkt.engine.scene
 
 import org.lwjglbookkt.engine.graph.Mesh
+import org.lwjglbookkt.engine.graph.Model
 
 class Scene(width: Int, height: Int) {
 
-    val meshMap = mutableMapOf<String, Mesh>()
+    val modelMap = mutableMapOf<String, Model>()
     val projection = Projection(width, height)
 
-    fun cleanup() {
-        meshMap.values.forEach(Mesh::cleanup)
+
+    fun addEntity(entity: Entity) {
+        val modelId = entity.modelId
+        val model = modelMap[modelId] ?: throw RuntimeException("Could not find model [$modelId]")
+
+        model.entitiesList.add(entity)
     }
 
-    fun addMesh(meshId: String, mesh: Mesh) {
-        meshMap[meshId] = mesh
+    fun addModel(modelId: String, model: Model) {
+        modelMap[modelId] = model
     }
 
     fun resize(width: Int, height: Int) {
         projection.updateProjMatrix(width, height)
     }
 
+    fun cleanup() {
+        modelMap.values.forEach(Model::cleanup)
+    }
 }

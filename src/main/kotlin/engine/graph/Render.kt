@@ -11,6 +11,7 @@ class Render {
 
     init {
         GL.createCapabilities()
+        glEnable(GL_DEPTH_TEST)
         sceneRender = SceneRender()
     }
 

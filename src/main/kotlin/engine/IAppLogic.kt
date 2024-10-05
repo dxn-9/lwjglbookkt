@@ -1,6 +1,7 @@
 package org.lwjglbookkt.engine
 
 import org.lwjglbookkt.engine.graph.Render
+import org.lwjglbookkt.engine.scene.Scene
 
 interface IAppLogic {
     fun cleanup()

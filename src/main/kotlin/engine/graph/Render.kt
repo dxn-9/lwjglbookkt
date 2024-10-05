@@ -2,7 +2,7 @@ package org.lwjglbookkt.engine.graph
 
 import org.lwjgl.opengl.GL
 import org.lwjgl.opengl.GL30.*
-import org.lwjglbookkt.engine.Scene
+import org.lwjglbookkt.engine.scene.Scene
 import org.lwjglbookkt.engine.Window
 
 

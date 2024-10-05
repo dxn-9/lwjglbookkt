@@ -1,13 +1,14 @@
 package org.lwjglbookkt.engine
 
 import org.lwjglbookkt.engine.graph.Render
+import org.lwjglbookkt.engine.scene.Scene
 
 class Engine(windowTitle: String, opts: Window.WindowOptions, val appLogic: IAppLogic) {
     val window: Window = Window(windowTitle, opts, { resize() })
     val targetFps: Int = opts.fps
     val targetUps: Int = opts.ups
     val render = Render()
-    val scene = Scene()
+    val scene = Scene(window.width, window.height)
     var running = true
 
     companion object {
@@ -73,7 +74,7 @@ class Engine(windowTitle: String, opts: Window.WindowOptions, val appLogic: IApp
     }
 
     fun resize() {
-        //TODO
+        scene.resize(window.width, window.height)
     }
 
 

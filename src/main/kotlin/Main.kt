@@ -1,12 +1,9 @@
 package org.lwjglbookkt
 
 import org.lwjglbookkt.engine.graph.Mesh
-import org.lwjgl.glfw.*
-import org.lwjgl.glfw.GLFW.*
-import org.lwjgl.opengl.GL11.*
 import org.lwjglbookkt.engine.Engine
 import org.lwjglbookkt.engine.IAppLogic
-import org.lwjglbookkt.engine.Scene
+import org.lwjglbookkt.engine.scene.Scene
 import org.lwjglbookkt.engine.Window
 import org.lwjglbookkt.engine.graph.Render
 
@@ -17,7 +14,7 @@ class Main : IAppLogic {
         @JvmStatic
         fun main(args: Array<String>) {
             val main = Main()
-            val gameEng = Engine("chapter-02", Window.WindowOptions(width = 500, height = 500), main)
+            val gameEng = Engine("chapter-02", Window.WindowOptions(width = 800, height = 500), main)
             gameEng.start()
         }
     }
@@ -29,10 +26,10 @@ class Main : IAppLogic {
 
     override fun init(window: Window, scene: Scene, render: Render) {
         val positions = arrayOf(
-            -0.5f, 0.5f, 0.0f,
-            -0.5f, -0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            0.5f, 0.5f, 0.0f,
+            -0.5f, 0.5f, -1.0f,
+            -0.5f, -0.5f, -1.0f,
+            0.5f, -0.5f, -1.0f,
+            0.5f, 0.5f, -1.0f,
         ).toFloatArray()
         val colors = arrayOf(
             0.5f, 0.0f, 0.0f,
